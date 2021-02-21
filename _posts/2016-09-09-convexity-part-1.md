@@ -2,7 +2,7 @@
 layout: post
 title: "A very brief introduction to convex optimization"
 author: "Ben Lansdell"
-categories: math
+categories: posts
 tags: [convexity]
 image: arctic-1.jpg
 ---
