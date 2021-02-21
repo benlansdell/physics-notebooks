@@ -14,8 +14,8 @@ sass:
   style: :nested
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
-title:		           "Notebooks"
-description:	       "Expository pieces in math and physics"
+title:		           "Expositions"
+description:	       "Notebooks illustrating topics in math and physics"
 author:              "Ben Lansdell"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
