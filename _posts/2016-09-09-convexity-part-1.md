@@ -4,7 +4,7 @@ title: "A very brief introduction to convex optimization"
 author: "Ben Lansdell"
 categories: posts
 tags: [convexity]
-image: arctic-1.jpg
+image: convexchart.png
 ---
 
 
