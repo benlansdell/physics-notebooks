@@ -148,6 +148,10 @@ Then $$I_S(x)$$ is convex
 
 4. Common functions: $$1/x$$ for $$x>0$$, $$e^x$$ for $$x\in\mathbb{R}$$, $$x^2$$ for $$x\in\mathbb{R}$$.
 
+![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/squared.png)
+
+![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/inverse.png)
+
 ### Examples of strong convexity
 
 $$f(x) = x^2$$, somewhat trivally, *is* a strongly convex function.
