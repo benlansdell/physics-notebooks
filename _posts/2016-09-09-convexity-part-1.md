@@ -24,7 +24,7 @@ It will assume some basic familiarity with the idea of optimization, linear alge
 
 Most machine learning problems end up as some form of optimization problem, thus a basic understanding of optimization is very useful, or sometimes necessary, to solve a given problem. 
 
-For instance, in simple linear regression, given some data $$(y, X)$$ and a model $$y \sim X\beta + \epsilon$$, we aim to find the weights $\beta$ that minimize:
+For instance, in simple linear regression, given some data $$(y, X)$$ and a model $$y \sim X\beta + \epsilon$$, we aim to find the weights $$\beta$$ that minimize:
 
 $$
 \beta^* = \text{argmin}_\beta \|y - X\beta\|^2_2.
@@ -69,7 +69,7 @@ Ok, but what is a convex function?
 
 ### 2. Basics of convex functions and sets
 
-A convex *set* is a set $C$ in which the line segment connecting any two points in the set is also in the set. That is, if $$x_1,x_2\in C$$ and $$0\le \theta \le t$$ then
+A convex *set* is a set $$C$$ in which the line segment connecting any two points in the set is also in the set. That is, if $$x_1,x_2\in C$$ and $$0\le \theta \le t$$ then
 
 $$
 \theta x_1 + (1-\theta)x_2 \in C.
@@ -217,7 +217,7 @@ $$
 \alpha I \preceq \nabla^2 f(x) \preceq \beta I
 $$
 
-for all $x\in\mathcal{X}$ and $0<\alpha \le \beta$. An equivalent condition is for
+for all $$x\in\mathcal{X}$$ and $$0<\alpha \le \beta$$. An equivalent condition is for
 
 $$
 f(y) \ge f(x) + \nabla f(x)(y-x) + \frac{\alpha}{2}\|y-x\|^2,\quad \forall x,y\in\mathcal{X}
