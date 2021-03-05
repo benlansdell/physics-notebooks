@@ -142,9 +142,15 @@ $$
 
 Then $$I_S(x)$$ is convex
 
+![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/indicator_function.png)
+
 2. Norms. Any norm is a convex function:
 
+![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/l1_plot.png)
+
 3. Quadratic functions: $$f(x) = x^T P x + 2q^T x + r$$ for $$P$$ positive definite. The linear least squares in the introduction is a quadratic function of this form.
+
+![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/quad_plot.png)
 
 4. Common functions: $$1/x$$ for $$x>0$$, $$e^x$$ for $$x\in\mathbb{R}$$, $$x^2$$ for $$x\in\mathbb{R}$$.
 
