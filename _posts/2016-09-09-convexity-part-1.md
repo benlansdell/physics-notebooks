@@ -158,6 +158,9 @@ $$f(x) = x^2$$, somewhat trivally, *is* a strongly convex function.
 
 $$f(x) = \exp(x)$$ is *not* a strongly convex function. The general idea being something like functions that become arbitarily flat/linear in some direction are not strongly convex.
 
+<iframe width="100%" height="849" frameborder="0"
+  src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+x0%2Cviewof+m%2Cx2_strong_convex%2Cexp_strong_convex"></iframe>
+  
 ### Operations that preserve convexity
 
 1. Non-negative weighted sums.
