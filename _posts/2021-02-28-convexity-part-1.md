@@ -9,7 +9,7 @@ image: convexchart.png
 
 ## Part 1
 
-Here I cover a basic introduction to concepts and theory of convex optimization. The goal is to give an impression of why this is an important area of optimization, what its applications are, and some intiution for how it works. This is of course not meant to overview all areas of convex optimization, it's a huge topic, but more to give a flavor of the area by describing some results and theory, particularly as they relate to other areas that may be familiar to people (e.g. Lagrange multipliers). By presenting this in a notebook the aim is to focus on providing some geometric intuition whenever possible through plotting simple examples whose parameters you can play with. Images not generated in this notebook are taken from one of the standard references: [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf), by Boyd and Vandenberghe. 
+Here I cover a basic introduction to concepts and theory of convex optimization. The goal is to give an impression of why this is an important area of optimization, what its applications are, and some intiution for how it works. This is of course not meant to overview all areas of convex optimization, it's a huge topic, but more to give a flavor of the area by describing some results and theory, particularly as they relate to other areas that may be familiar to some (e.g. the method of Lagrange multipliers). By presenting this in a notebook the aim is to focus on providing some geometric intuition whenever possible through plotting simple examples whose parameters you can play with. Images not generated in this notebook are taken from one of the standard references: [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf), by Boyd and Vandenberghe. 
 
 This will be a (for the moment) two part post. In this part I will cover:
 
@@ -229,19 +229,19 @@ $$
 \alpha I \preceq \nabla^2 f(x) \preceq \beta I
 $$
 
-for all $$x\in\mathcal{X}$$ and $$0<\alpha \le \beta$$. An equivalent condition is for
+for all $$x\in\mathcal{X}$$ and $$0<\alpha \le \beta$$, an equivalent condition is for
 
 $$
 f(y) \ge f(x) + \nabla f(x)(y-x) + \frac{\alpha}{2}\|y-x\|^2,\quad \forall x,y\in\mathcal{X}
 $$
 
-known as $$\alpha$$-strongly convex. And 
+known as $$\alpha$$-strongly convex. And the relation condition 
 
 $$
 f(y) \le f(x) + \nabla f(x)(y-x) + \frac{\beta}{2}\|y-x\|^2,\quad \forall x,y\in\mathcal{X}
 $$
 
-Known as $$\beta$$-smoothness.
+is known as $$\beta$$-smoothness.
 
 In other words, for all points $$x\in\mathcal{X}$$, the function $$f(y)$$ can be bounded below and above by quadratic functions intersecting at $$f(x)$$.
 
@@ -298,6 +298,6 @@ $$
 
 This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. In the below widget we observe the convergence behavior (the primal gap as a function of gradient descent iteration). Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$.
 
-<iframe width="100%" frameborder="0"
+<iframe width="100%" height="476" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+alpha%2Cviewof+beta%2Cgd_widget"></iframe>
 
