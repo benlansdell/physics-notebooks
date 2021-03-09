@@ -7,8 +7,7 @@ tags: [convexity]
 image: convexchart.png
 ---
 
-
-## A very short introduction to convex optimization -- Part 1
+## Part 1
 
 Here I cover a basic introduction to concepts and theory of convex optimization. The goal is to give an impression of why this is an important area of optimization, what its applications are, and some intiution for how it works. This is of course not meant to overview all areas of convex optimization, it's a huge topic, but more to give a flavor of the area by describing some results and theory, particularly as they relate to other areas that may be familiar to people (e.g. Lagrange multipliers). By presenting this in a notebook the aim is to focus on providing some geometric intuition whenever possible through plotting simple examples whose parameters you can play with. Images not generated in this notebook are taken from one of the standard references: [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf), by Boyd and Vandenberghe. 
 
@@ -129,7 +128,7 @@ This means the function can be lower bounded by a quadratic function with some f
 
 ### Some examples of convex functions
 
-1. Indicator function of a convex set, $$S$$. 
+1. The indicator function of a convex set, $$S$$. 
 
 If $$I_S(x)$$ is defined as
 
@@ -144,15 +143,15 @@ Then $$I_S(x)$$ is convex
 
 ![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/indicator_function.png)
 
-2. Norms. Any norm is a convex function:
+2. Norms. Any norm is a convex function. Here is the $$L_1$$ norm:
 
 ![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/l1_plot.png)
 
-3. Quadratic functions: $$f(x) = x^T P x + 2q^T x + r$$ for $$P$$ positive definite. The linear least squares in the introduction is a quadratic function of this form.
+3. Quadratic functions: $$f(x) = x^T P x + 2q^T x + r$$ for $$P$$ positive definite. The linear least squares in the introduction is a quadratic function of this form. For example:
 
 ![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/quad_plot.png)
 
-4. Common functions: $$1/x$$ for $$x>0$$, $$e^x$$ for $$x\in\mathbb{R}$$, $$x^2$$ for $$x\in\mathbb{R}$$.
+4. Common functions: $$1/x$$ for $$x>0$$, $$e^x$$ for $$x\in\mathbb{R}$$, $$x^2$$ for $$x\in\mathbb{R}$$. For instance:
 
 ![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/squared.png)
 
@@ -162,12 +161,14 @@ Then $$I_S(x)$$ is convex
 
 $$f(x) = x^2$$, somewhat trivally, *is* a strongly convex function.
 
-$$f(x) = \exp(x)$$ is *not* a strongly convex function. The general idea being something like functions that become arbitarily flat/linear in some direction are not strongly convex.
+$$f(x) = \exp(x)$$ is *not* a strongly convex function. The general idea being something like functions that become arbitarily flat/linear in some direction are not strongly convex. This is simply shown below, in which for the quadratic function, we can find an $$m$$ such that a quadatic approximation at any point $$x_0$$ with second derivative $$m$$ is always below $$f(x)$$. This is not true for the exponential function.
 
 <iframe width="100%" height="849" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+x0%2Cviewof+m%2Cx2_strong_convex%2Cexp_strong_convex"></iframe>
   
 ### Operations that preserve convexity
+
+Convexity is a strong property. So it's good to know when we can preserve it.
 
 1. Non-negative weighted sums.
 
@@ -219,6 +220,8 @@ $$
 is convex.
 
 ### 3. Convergence of gradient descent
+
+We demonstrate how the ideas presented here can be used to study optimization algorithms. We'll prove the convergence of gradient descent for strongly convex functions. The argument is as follows.
 
 For a strongly convex function that satisfies:
 
@@ -285,7 +288,7 @@ $$
 h_{t} = h_0(1 - \frac{\alpha}{\beta})^t.
 $$
 
-Since $$\alpha < \beta$$ then the algorithm converges. Further, how close $$\alpha$$ is to $$\beta$$ determines the convergence rate -- convergence is fastest when $$\alpha$$ is close to $$\beta$$... this corresponds to the Hessian being closed to spherical (well-conditioned).
+Since $$\alpha < \beta$$ then the algorithm converges. Further, how close $$\alpha$$ is to $$\beta$$ determines the convergence rate -- convergence is fastest when $$\alpha$$ is close to $$\beta$$. This corresponds to the Hessian being closed to spherical (well-conditioned).
 
 As an example, consider the quadratic function:
 
@@ -293,7 +296,7 @@ $$
 f(x,y) = \frac{m_x}{2}x^2 + \frac{m_y}{2}y^2.
 $$
 
-This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. We observe the convergence behavior (the primal gap as a function of gradient descent iteration). Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$.
+This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. In the below widget we observe the convergence behavior (the primal gap as a function of gradient descent iteration). Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$.
 
 <iframe width="100%" height="676" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+alpha%2Cviewof+beta%2Cgd_widget"></iframe>
