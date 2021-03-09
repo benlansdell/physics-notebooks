@@ -5,6 +5,7 @@ author: "Ben Lansdell"
 categories: posts
 tags: [convexity]
 image: convexchart.png
+published: false
 ---
 
 ## A very short introduction to convex optimization -- Part 2
