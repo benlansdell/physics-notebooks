@@ -298,6 +298,6 @@ $$
 
 This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. In the below widget we observe the convergence behavior (the primal gap as a function of gradient descent iteration). Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$.
 
-<iframe width="100%" height="676" frameborder="0"
+<iframe width="100%" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+alpha%2Cviewof+beta%2Cgd_widget"></iframe>
 
