@@ -298,6 +298,21 @@ $$
 
 This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. In the below widget we observe the convergence behavior (the primal gap as a function of gradient descent iteration). Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$.
 
-<iframe width="100%" height="476" frameborder="0"
-  src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+alpha%2Cviewof+beta%2Cgd_widget"></iframe>
+<div id="observablehq-viewof-alpha-a133ac4a"></div>
+<div id="observablehq-viewof-beta-a133ac4a"></div>
+<div id="observablehq-gd_widget-a133ac4a"></div>
 
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@benlansdell/convex-optimization-tutorials.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "viewof alpha") return new Inspector(document.querySelector("#observablehq-viewof-alpha-a133ac4a"));
+  if (name === "viewof beta") return new Inspector(document.querySelector("#observablehq-viewof-beta-a133ac4a"));
+  if (name === "gd_widget") return new Inspector(document.querySelector("#observablehq-gd_widget-a133ac4a"));
+  return ["simple_quadratic","simple_quadratic_prime","run_gradient_descent","gradient_descent_widget"].includes(name);
+});
+</script>
+
+### Conclusion
+
+We've seen here...
