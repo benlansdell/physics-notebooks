@@ -300,7 +300,7 @@ This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x
 
 <div id="observablehq-viewof-alpha-a133ac4a"></div>
 <div id="observablehq-viewof-beta-a133ac4a"></div>
-<div id="observablehq-gd_widget-a133ac4a"></div>
+<div id="observablehq-gd_widget-a133ac4a" width="100%" height="476" frameborder="0"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
@@ -315,4 +315,4 @@ new Runtime().module(define, name => {
 
 ### Conclusion
 
-We've seen here...
+We've seen here the basic components of ....
