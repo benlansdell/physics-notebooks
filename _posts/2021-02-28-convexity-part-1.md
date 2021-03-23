@@ -307,4 +307,4 @@ This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x
 
 ### Conclusion
 
-We've seen here the basic components of ....
+We've seen here the basic components of convex optimization, including what convexity is, some properties of convex functions, and how these relate to optimization with gradient descent. In the next post we will study how the theory of convex functions applies to Lagrange optimization and related concepts.
