@@ -296,11 +296,7 @@ $$
 f(x,y) = \frac{m_x}{2}x^2 + \frac{m_y}{2}y^2.
 $$
 
-This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. In the below widget we observe the convergence behavior (the primal gap as a function of gradient descent iteration). Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$.
-
-<div id="observablehq-viewof-alpha-a133ac4a"></div>
-<div id="observablehq-viewof-beta-a133ac4a"></div>
-<div id="observablehq-gd_widget-a133ac4a" width="100%" height="476" frameborder="0"></div>
+This is strongly convex, with $$\alpha = \min(m_x, m_y)$$ and $$\beta = \max(m_x, m_y)$$. In the below widget we observe the convergence behavior (the primal gap as a function of gradient descent iteration). The green trace in the widget below shows the progression of the optimization for 20 iterations, after starting at (1,1). You can play with the functions parameters to see how that affects the rate of convergence. Apart from the first iteration, it's linear on a log scale, as the above analysis would suggest. The slope depends on the ratio between $$\alpha$$ and $$\beta$$. 
 
 <iframe width="100%" height="637" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorials?cells=viewof+alpha%2Cviewof+beta%2Cgd_widget"></iframe>
