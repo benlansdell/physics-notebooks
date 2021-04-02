@@ -88,7 +88,7 @@ Thus finding stationary points of $$\mathcal{L}$$ will correspond to points sati
 
 But why should it minimize the function given the constraint? The graphical intuition is the following:
 
-![asdf]
+![title](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/lagrange_mult.png)
 
 ### 2.2 The dual problem
 
