@@ -30,6 +30,9 @@ Its conjugate is obtained through computing the following maximum:
 
 Which is clearly convex.
 
+<iframe width="100%" height="719" frameborder="0"
+  src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorial-part-2?cells=viewof+lambda%2Cx2_conjugate%2Cx2_conjugate_func"></iframe>
+
 ### Some more examples
 
 1. Affine functions. If $$f(x) = ax+b$$ then $$f^*:\{a\}\to\mathbb{R}$ and $f^*(a) = -b$$
@@ -84,6 +87,8 @@ $$
 Thus finding stationary points of $$\mathcal{L}$$ will correspond to points satisfying the constraints.
 
 But why should it minimize the function given the constraint? The graphical intuition is the following:
+
+![asdf]
 
 ### 2.2 The dual problem
 
