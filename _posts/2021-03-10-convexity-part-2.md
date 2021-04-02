@@ -4,7 +4,7 @@ title: "A very brief introduction to convex optimization (Part 2)"
 author: "Ben Lansdell"
 categories: posts
 tags: [convexity]
-image: convexchart.png
+image: mistymountain2.png
 published: true
 ---
 
