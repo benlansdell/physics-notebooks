@@ -229,7 +229,12 @@ which matches the optimal solution $$p^*$$.
 
 Strong duality holds here.
 
+<iframe width="100%" height="718" frameborder="0"
+  src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorial-part-2?cells=viewof+a%2Cx2_primal_problem%2Cx2_dual_problem"></iframe>
+
 What if we try with a non-convex function? Now let $$f(x) = -x^3+x$$, again with $$x\le a$$. 
+
+![duality_gap](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/primal_dual_gap.svg)
 
 This time we do have a duality gap.
 
@@ -282,6 +287,8 @@ The Lagrangian is:
 $$
 L(x, \lambda) = x^2 + \lambda(x-a)
 $$
+
+![saddle_point](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/saddle_point.png)
 
 ### 3. Generalizing Lagrange multipliers: the KKT conditions
 
