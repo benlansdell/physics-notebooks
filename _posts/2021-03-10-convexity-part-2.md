@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A very brief introduction to convex optimization (Part 2)"
+title: "A very brief introduction to convex optimization -- Part 2"
 author: "Ben Lansdell"
 categories: posts
 tags: [convexity]
@@ -8,9 +8,7 @@ image: mistymountain2.png
 published: true
 ---
 
-## A very short introduction to convex optimization -- Part 2
-
-Here we explore how some theory of convex functions and optimization relates to a common and powerful method in optimization -- Lagrange multipliers
+In this follow-up post, we explore how some theory of convex functions and optimization relates to a common and powerful method in optimization -- Lagrange multipliers
 
 ### 1. Conjugate functions
 
@@ -322,7 +320,10 @@ Usefully, this property gives additional equality constraints a solution must sa
 
 We actually saw complementary slackness at play in our simple quadratic example above. If we plot $$g(x^*) = x^* - a, \lambda^*$$ as a function of the inequality constraint parameter $$a$$ (recall $$x \le a$$):
 
+![cs](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/complementary_slackness.svg)
+
 We see for $$a\le 0$$ the constraint is tight, and $$x^* = a$$. For $$a>0$$, then the optimal solution is $$x^* = 0$$, and $$x^* - a$$ becomes slack.
+
 
 #### KKT for non-convex problems
 
