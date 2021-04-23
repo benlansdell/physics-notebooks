@@ -12,13 +12,13 @@ In this follow-up post, we explore how some theory of convex functions and optim
 
 ### 1. Conjugate functions
 
-Let $$f:\mathbb{R}^n\to\mathbb{R}$$, then we can define $$f^*:\mathbb{R}^n\to\mathbb{R}$$ as
+To being, we'll introduce the concept of a conjugate function. Let $$f:\mathbb{R}^n\to\mathbb{R}$$, then we can define $$f^*:\mathbb{R}^n\to\mathbb{R}$$ as
 
 $$
 f^*(\lambda) = \sup_{x\in\text{dom} f} (\lambda^T x - f(x)).
 $$
 
-As this is the pointwise supremum over a set of convex (linear) functions, it is itself convex. This is true regardless of whether $$f$$ is convex. This is known as the conjugate of $$f$$.
+As you'll recall from our last post, as this is the pointwise supremum over a set of convex (linear) functions, it is itself convex. This is true regardless of whether $$f$$ is convex. This is known as the conjugate of $$f$$.
 
 How can this be convex even if $$f$$ is not? Here's one example:
 
@@ -26,10 +26,10 @@ Consider the non-convex function $$f(x) = x^2(x-1)(x+1)$$
 
 Its conjugate is obtained through computing the following maximum:
 
-Which is clearly convex.
-
 <iframe width="100%" height="719" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorial-part-2?cells=viewof+lambda%2Cx2_conjugate%2Cx2_conjugate_func"></iframe>
+
+Which is clearly convex.
 
 ### Some more examples
 
@@ -38,7 +38,7 @@ Which is clearly convex.
 3. Negative entropy. If $$f(x) = x\log x$$ then $$f^*(x) = \exp(x-1)$$.
 4. Strictly convex quadratic function. If $$f(x) = \frac{1}{2}x^TQx$$ with $$Q$$ positive definite, then $$f^*(x) = \frac{1}{2}x^TQ^{-1}x$$
 
-If $$f(x)$$ is convex, then (given some additional technical condtions), $$f(x) = f^{**}(x)$$, justifying the use of the term conjugate.
+If $$f(x)$$ is convex then, given some additional technical condtions, $$f(x) = f^{**}(x)$$, justifying the use of the term conjugate.
 
 ### 2. Lagrangian duality
 
@@ -178,7 +178,7 @@ $$
 
 The solution is denoted $$(\lambda^*, \nu^*)$$, the *dual optimal* solution. Since this is a maximization of a concave function, it is a convex problem, even if the primal problem is not. 
 
-Call $$d^* = g(\lambda^*, \nu^*)$$. Then from above, we have
+Call $$d^* = g(\lambda^*, \nu^*)$$. Then, from above, we have
 
 $$
 d^*\le p^*
@@ -200,7 +200,7 @@ then *strong duality* holds. Now the dual problem can say a lot more about our o
 
 #### Some examples
 
-But this has been quite a bit of theory. So what are some examples of these concepts?
+This has been quite a bit of theory. So what are some examples of these concepts?
 
 Well, let's consider again the simple quadratic function $$f(x) = x^2/2$$ with inequality constraints $$x - a \le 0$$. The Lagrangian is 
 
@@ -225,7 +225,7 @@ $$
 
 which matches the optimal solution $$p^*$$.
 
-Strong duality holds here.
+Strong duality holds here, as we can see in this olot. The top axes show the original optimization problem, with the red line indicating the primal optimal solution. The bottom axes show the dual optimization problem, with the dashed line showing the dual optimal solution. We can see the red and dashed lines overlap, regardless of the value of $$a$$.
 
 <iframe width="100%" height="718" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/convex-optimization-tutorial-part-2?cells=viewof+a%2Cx2_primal_problem%2Cx2_dual_problem"></iframe>
@@ -234,7 +234,7 @@ What if we try with a non-convex function? Now let $$f(x) = -x^3+x$$, again with
 
 ![duality_gap](https://raw.githubusercontent.com/benlansdell/expositions/gh-pages/assets/img/primal_dual_gap.svg)
 
-This time we do have a duality gap.
+This time we do have a duality gap, as evidenced by the gap between the red and dashed curves.
 
 #### Min-max interpretation
 
@@ -367,18 +367,6 @@ To summarize all of the above: for any differentiable optimization problem for w
 When the problem is convex, KKT is also sufficient, and *any* solution that satisifes the conditions is optimal. 
 
 Outside of convexity, there are a range of other *constraint qualifications* that imply that a particular problem has strong duality, and therefore that KKT is relevant. 
-
-## Example
-
-Ok, finally...
-
-How does all this apply to a common problem, the lasso?
-
-This problem is formulated as 
-
-$$
-\min_{\beta_0, \beta}\frac{1}{N}\|y-\beta_01_N - X\beta\|_2^2, \quad \|\beta\|_1 \le t
-$$
 
 ## Take-home messages
 
