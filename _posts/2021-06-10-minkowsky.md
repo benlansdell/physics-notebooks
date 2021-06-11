@@ -33,6 +33,9 @@ You can see the effect of changing the velocity on the axes below.
 <iframe width="100%" height="503" frameborder="0"
   src="https://observablehq.com/embed/@benlansdell/minkowsky-space?cells=viewof+v_g%2Cviewof+lightcone_g%2Cpg"></iframe>
   
+  <iframe width="100%" height="927" frameborder="0"
+  src="https://observablehq.com/embed/@benlansdell/minkowsky-space?cells=viewof+v_g%2Cviewof+lightcone_g%2Cpg%2Ctextbox"></iframe>
+  
 * Single clicking on the plot above places an event on the axes, connected to an event at the origin, with corresponding coordinates in each frame shown below. Note the coordinates change if you change the relative velocity of the two frames with the slider above. It also draws a linear trajectory from the origin to this event -- we can imagine some particle travelling along this trajectory. We know its start and end points, and so can compute its velocity in both coordinate frames.
 
 ${tex.block`
