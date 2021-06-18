@@ -4,7 +4,7 @@ title: "Minkowsky space"
 author: "Ben Lansdell"
 categories: posts
 tags: [special-relativity]
-image: convexchart.png
+image: stars.png
 ---
 
 Here is an exploration of Minkowsky space -- the space-time prescribed by the postulates of special relativity -- in 1 space dimension (and 1 time dimension).
