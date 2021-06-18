@@ -59,9 +59,21 @@ This is easy to see in the above Galilean axes. Turn on the light cone on the ax
 
 Minkowsky space-time is what we get when we impose Einstein's second postulate on a theory of relativity. The result is not a *Euclidean* space-time but, in a certain sense, a *hyperbolic* one. It has strange consequences for our notions of space, time, energy and mass.
 
-<iframe width="100%" height="504" frameborder="0"
-  src="https://observablehq.com/embed/@benlansdell/minkowsky-space?cells=viewof+v_m%2Cviewof+lightcone_m%2Cpm"></iframe>
-  
+<div id="observablehq-viewof-v_m-8e80fb62"></div>
+<div id="observablehq-viewof-lightcone_m-8e80fb62"></div>
+<div id="observablehq-pm-8e80fb62"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@benlansdell/minkowsky-space.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "viewof v_m") return new Inspector(document.querySelector("#observablehq-viewof-v_m-8e80fb62"));
+  if (name === "viewof lightcone_m") return new Inspector(document.querySelector("#observablehq-viewof-lightcone_m-8e80fb62"));
+  if (name === "pm") return new Inspector(document.querySelector("#observablehq-pm-8e80fb62"));
+  return ["plot_minkowsky","gamma","m_x_func","m_t_func","m_x_inv","m_t_inv","event_xp_m","event_x_m","event_t_m"].includes(name);
+});
+</script>
+
 Above is a representation of Minkowsky space, that is the space-time in which inertial frames of reference are related by the following transformation, known as the Lorentz transformation: 
 $$
 \begin{aligned}
