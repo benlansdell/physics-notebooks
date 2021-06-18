@@ -30,9 +30,21 @@ t' &= t.
 $$
 You can see the effect of changing the velocity on the axes below.
 
-<iframe width="100%" height="613" frameborder="0"
-  src="https://observablehq.com/embed/@benlansdell/minkowsky-space?cells=viewof+v_g%2Cviewof+lightcone_g%2Cpg%2Cstats"></iframe>
-  
+<div id="observablehq-viewof-v_g-853e198b"></div>
+<div id="observablehq-pg-853e198b"></div>
+<div id="observablehq-stats-853e198b"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@benlansdell/minkowsky-space.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "viewof v_g") return new Inspector(document.querySelector("#observablehq-viewof-v_g-853e198b"));
+  if (name === "pg") return new Inspector(document.querySelector("#observablehq-pg-853e198b"));
+  if (name === "stats") return new Inspector(document.querySelector("#observablehq-stats-853e198b"));
+  return ["g_x_func","g_x_inv","plot_gallileo","event_xp_g","event_x_g"].includes(name);
+});
+</script>
+
 * Single clicking on the plot above places an event on the axes, connected to an event at the origin, with corresponding coordinates in each frame shown below. Note the coordinates change if you change the relative velocity of the two frames with the slider above. It also draws a linear trajectory from the origin to this event -- we can imagine some particle travelling along this trajectory. We know its start and end points, and so can compute its velocity in both coordinate frames.
 
 * Double clicking on the plot above also places an event on the axes. This event is considered to be fixed in the moving frame, however, and so now if you change the relative velocity of the frames the event will (in our 'non-moving' frame) be shifted along with it.  
