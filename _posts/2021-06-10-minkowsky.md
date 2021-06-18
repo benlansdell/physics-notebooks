@@ -30,17 +30,19 @@ t' &= t.
 $$
 You can see the effect of changing the velocity on the axes below.
 
-<div id="observablehq-viewof-v_g-853e198b"></div>
-<div id="observablehq-pg-853e198b"></div>
-<div id="observablehq-stats-853e198b"></div>
+<div id="observablehq-viewof-v_g-d6e7403f"></div>
+<div id="observablehq-viewof-lightcone_g-d6e7403f"></div>
+<div id="observablehq-pg-d6e7403f"></div>
+<div id="observablehq-stats-d6e7403f"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@benlansdell/minkowsky-space.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "viewof v_g") return new Inspector(document.querySelector("#observablehq-viewof-v_g-853e198b"));
-  if (name === "pg") return new Inspector(document.querySelector("#observablehq-pg-853e198b"));
-  if (name === "stats") return new Inspector(document.querySelector("#observablehq-stats-853e198b"));
+  if (name === "viewof v_g") return new Inspector(document.querySelector("#observablehq-viewof-v_g-d6e7403f"));
+  if (name === "viewof lightcone_g") return new Inspector(document.querySelector("#observablehq-viewof-lightcone_g-d6e7403f"));
+  if (name === "pg") return new Inspector(document.querySelector("#observablehq-pg-d6e7403f"));
+  if (name === "stats") return new Inspector(document.querySelector("#observablehq-stats-d6e7403f"));
   return ["g_x_func","g_x_inv","plot_gallileo","event_xp_g","event_x_g"].includes(name);
 });
 </script>
