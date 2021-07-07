@@ -1,98 +1,109 @@
 ---
 layout: post
-title: "Special relativity simulation"
+title: "A special relativity simulator"
 author: "Ben Lansdell"
 categories: posts
 tags: [special-relativity]
 image: stars.png
 ---
 
-Here is an exploration of Minkowsky space -- the space-time prescribed by the postulates of special relativity -- in 1 space dimension (and 1 time dimension).
+Here we imagine we are in control of a powerful spaceship, navigating flat spacetime (i.e. away from any massive objects which could curve spacetime). We can provide thrust in only one spatial dimension, either forwards or backwards. 
 
-A theory of relativity tells us how measurements of space (e.g. location, length) and time (e.g. duration) taken by two observers are related to one another. Objects are always in motion relative to one another, and such measurements are of course fundamental to any theory of mechanics, thus such theories are foundational to physics.
+The force we can apply, at a time measured on the ship $\tau$, accelerates the ship accordingly. What does our navigation look like from an outside observer? Let's call this outside reference frame **R**.
 
-The fundamental object in such a theory is an _event_, which is simply a point in space and time. How do two observers measure the same event?
+Special relativity dictates that when the relative velocity of our ship approaches the speed of light, the kinematics of our flight, as observed by an outside observer, deviate those given by Newtonian mechanics. This post lets us explore how the kinematics do play out in special relativity. 
 
-### Galilean space-time
+Einstein's theories of relativity generally require spelling out the setup more explicitly than in a Galilean setting -- we have to explicitly say how a concept is to be operationalized for it to be fair game. To that end, let's elaborate a bit more before diving into the simulation. 
 
-Before describing the space-time prescribed by special relativity, we can describe what is perhaps the naive way of relating events measured by two observers -- that of pre-Einsteinian, Galilean space-time.
+This will assume some knowledge of special relativity. 
 
-Shown below are the coordinate frames for two observers, one moving relative to one other. The stationary observer has the standard Cartesian grid (red), while the moving observer has a grid that is a shear mapping of the Cartesian grid (blue; though they are overlapped in the default image to make purple, change the relavtive velocity to see the two axes), the amount of shear determined by the relative velocity of the frames. 
+### The setup
 
-The idea is to think of events, being points in space and time, as being located on this chart somewhere. By overlapping the two observers' coordinate frames we can say how each observer would measure a given event. Note that the overlapping coordinates here are setup so that both have the same origin. 
+First, throughout we'll assume units in which the speed of light is 1, so there will be no $c$s anywhere thoughout this post. They could always be put back in any expression in whatever way makes the units work out.
 
-The shear transformation shown here is in fact the Galilean transformation. Supposing $$x$$ is the spatial location of an event in the stationary frame, and $$x$$ is the spatial location of the event in the moving frame. Similarly for the times $$t$$ and $$t'$$. Then, given a relative frame velocity $$v$$, they are related by
-$$
+Second, from our [earlier post](https://benlansdell.github.io/expositions/posts/minkowsky.html), we recall that moving clocks run slowly. So, we'll denote time measured by the outside observer as $t$. In frame **R**, $\tau$ runs slow compared to $t$ for high relative velocities. 
+
+Now, how should we think about acceleration in moving frames? Dealing with measurements made in an accelerating frame is most satisfactorily studied with the general theory of relavity. But even absent this more general theory we can make sense of this question. The idea is to define all kinematic quantities, including acceleration, as 4-dimensional objects that are parameterized by the spaceship's clock, $\tau$. By doing so these quantities possess certain invariances to undergoing a Lorentz transformation -- their properties are independent of our way of observing, or parameterizing, them. (These derivations will be provided in a follow-up post.) This is useful here, and indispensible in more complicated cases.
+
+The so-called 4-acceleration is the rate of change of the 4-velocity as a function of proper time, $\tau$:
+$
 \begin{aligned}
-x' &= x - vt,\\
-t' &= t.
+A = dU/d\tau = [a^0, a^1, a^2, a^3]
 \end{aligned}
-$$
-You can see the effect of changing the velocity on the axes below.
+$
 
-<div id="observablehq-viewof-v_g-d6e7403f"></div>
-<div id="observablehq-viewof-lightcone_g-d6e7403f"></div>
-<div id="observablehq-pg-d6e7403f"></div>
-<div id="observablehq-stats-d6e7403f"></div>
+In our reduced dimension case, we only need consider 1 spatial component. We can show that $A$ is of the form: $a^0 = a\gamma v$, $a^1 = a\gamma$ and $a^2 = a^3 = 0$, for some parameter $a$. In fact, in Minkowsky space, with the metric signature (-1,1,1,1), we have $A\cdot A = a^2$. Further, in an inertial frame that is at some moment $t$ moving along with the ship at exactly its velocity, $v(t)$, we see that $a^0 = 0$ and $a^1 = a$. This means that in the inertial frame that is momentarily moving along with the ship, there are no relativistic effects and the ship has acceleration $a$ -- thus $a$ can be thought of as the acceleration _as experienced by those on the ship, and what we have control over by adjusting the thrusters_. 
+
+### The kinematic equations
+
+From an outside observer, it is quite straightforward to derive the following relations:
+$
+\begin{aligned}
+dx/d\tau = \sinh\left(\int_0^{\tau(t)} a(s)\,ds\right)\\
+dt/d\tau = \cosh\left(\int_0^{\tau(t)} a(s)\,ds\right)
+\end{aligned}
+$
+
+And thus we have
+$
+\begin{aligned}
+v(t) = dx/dt = \tanh\left(\int_0^{\tau(t)} a(s)\,ds\right)
+\end{aligned}
+$
+
+The quantity $\phi = \int_0^\tau a(s)\,ds$ is known as the rapidity. Note that it has the form simply of the integrated 'local' acceleration -- it is the velocity occupants on the ship would be moving at if relativistic effects were absent.
+
+This equation for velocity as a function of rapidity can be integrated by time to give the ship's position in frame **R**.
+
+### The simulation
+
+The simulation below computes rapidity as a function of force applied to the ship, from which it can compute $v$ and thus $x$. It also tracks the ship's mass, proper time, momentum and Lorentz factor, all assuming the ship has unit mass. You can change the force with the slider below.
+
+First we plot things for an outside observer, frame **R**.
+
+<div id="observablehq-viewof-options-8839b668"></div>
+<div id="observablehq-viewof-reset_widget-8839b668"></div>
+<div id="observablehq-rest_frame-8839b668"></div>
+<div id="observablehq-speedControl-8839b668"></div>
+<div id="observablehq-Force-8839b668"></div>
+<div id="observablehq-stats-8839b668"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@benlansdell/minkowsky-space.js?v=3";
+import define from "https://api.observablehq.com/@benlansdell/a-special-relativity-simulator.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "viewof v_g") return new Inspector(document.querySelector("#observablehq-viewof-v_g-d6e7403f"));
-  if (name === "viewof lightcone_g") return new Inspector(document.querySelector("#observablehq-viewof-lightcone_g-d6e7403f"));
-  if (name === "pg") return new Inspector(document.querySelector("#observablehq-pg-d6e7403f"));
-  if (name === "stats") return new Inspector(document.querySelector("#observablehq-stats-d6e7403f"));
-  return ["g_x_func","g_x_inv","plot_gallileo","event_xp_g","event_x_g"].includes(name);
+  if (name === "viewof options") return new Inspector(document.querySelector("#observablehq-viewof-options-8839b668"));
+  if (name === "viewof reset_widget") return new Inspector(document.querySelector("#observablehq-viewof-reset_widget-8839b668"));
+  if (name === "rest_frame") return new Inspector(document.querySelector("#observablehq-rest_frame-8839b668"));
+  if (name === "speedControl") return new Inspector(document.querySelector("#observablehq-speedControl-8839b668"));
+  if (name === "Force") return new Inspector(document.querySelector("#observablehq-Force-8839b668"));
+  if (name === "stats") return new Inspector(document.querySelector("#observablehq-stats-8839b668"));
+  return ["plot_rest_frame","state","a","t","tau","p","x","rapidity","p_g","x_g","v_g","plot_moving_frame","v","moving_frame","m_x_func","m_t_func","gamma","mass","energy"].includes(name);
 });
 </script>
 
-* Single clicking on the plot above places an event on the axes, considered fixed in the stationary frame, with corresponding coordinates in each frame shown below. Note that the moving observer measures this event differently if you change the relative velocity of the two frames with the slider above. It also draws a linear trajectory from the origin to this event -- we can imagine some particle travelling along this trajectory. We know its start and end points, and so can compute its velocity in both coordinate frames, as shown.
+Denote by **R'**(t) the inertial frame that, at time $t$, is moving with speed $v(t)$ relative to **R**, with the origin shifted to be the location of the ship. We can then plot the worldline from **R'**(t). 
 
-* Double clicking on the plot above also places an event on the axes. This event is considered to be fixed in the moving frame, however, and so now if you change the relative velocity of the frames the event will (in our 'non-moving' frame) be shifted along with it.  
-
-### From Galileo to Minkowsky
-
-Galilean space-time has a curious feature, in particular when it comes to measuring the speed of light. Einstein noted that, in the scenario above, in which both observers are in so-called inertial references frames, moving relative to one another, there is no privileged frame in which an observer can rightfully claim to 'really be the one at rest', and that it is the others that are 'really moving'. This means that both observers, in their own frames of reference, cannot do any experiments that can tell them it is they who are stationary, and not the other observer. **The laws of physics are the same for all inertial observers**. This is Einstein's first postulate. His second postulate follows naturally from this line of thinking: **the speed of light is the same for all inertial observers**, regardless of the velocity of the object that emitted the light. Some reflection suggests that the second postulate is incompatible with the Galilean picture above. 
-
-This is easy to see in the above Galilean axes. Turn on the light cone on the axes. This draws the trajectory a particle traveling from the origin at the speed of light, relative to the stationary observer, would take in the diagram (we have normalized units here so that the speed of light $$c$$ is 1, and hence this line has slope $$\pm 1$$). Select an event that sits on this light cone somewhere. By sitting on the light cone it has speed $$c$$ according to the stationary frame. But observe that this is not the case as measured by the moving observer. Indeed, as the relative velocity of the two frames is changed, the velocity of the packet of light, as measured by the other observer, changes.
-
-### Minkowsky space-time
-
-Minkowsky space-time is what we get when we impose Einstein's second postulate on a theory of relativity. The result is not a separate *Euclidean* space with a time dimension added time but, in a certain sense, a *hyperbolic* space-time in which space and time become interrelated. It has strange consequences for our notions of space, time, energy and mass.
-
-<div id="observablehq-viewof-v_m-8e80fb62"></div>
-<div id="observablehq-viewof-lightcone_m-8e80fb62"></div>
-<div id="observablehq-pm-8e80fb62"></div>
+<div id="observablehq-moving_frame-39a30556"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import define from "https://api.observablehq.com/@benlansdell/minkowsky-space.js?v=3";
+import define from "https://api.observablehq.com/@benlansdell/a-special-relativity-simulator.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "viewof v_m") return new Inspector(document.querySelector("#observablehq-viewof-v_m-8e80fb62"));
-  if (name === "viewof lightcone_m") return new Inspector(document.querySelector("#observablehq-viewof-lightcone_m-8e80fb62"));
-  if (name === "pm") return new Inspector(document.querySelector("#observablehq-pm-8e80fb62"));
-  return ["plot_minkowsky","gamma","m_x_func","m_t_func","m_x_inv","m_t_inv","event_xp_m","event_x_m","event_t_m"].includes(name);
+  if (name === "moving_frame") return new Inspector(document.querySelector("#observablehq-moving_frame-39a30556"));
 });
 </script>
 
-Above is a representation of Minkowsky space, that is the space-time in which inertial frames of reference are related by the following transformation, known as the Lorentz transformation: 
-$$
-\begin{aligned}
-x' &= \gamma(x - vt),\\
-t' &= \gamma(t - vx/c^2),
-\end{aligned}
-$$
-where $$\gamma = 1/\sqrt{1-v^2/c^2}$$.
+Some things to note:
 
-If you play around with specifing events on these coordinates and with different relative frame velocities, you'll notice some interesting things.
+* In frame **R'**(t), the acceleration vector points entirely in the $x$ axis and the velocity vector coincides with the time axis $t'$ -- this makes sense since in this frame it has, at this instance, zero velocity. It's clear in this frame that the acceleration vector is always perpendicular to the velocity vector -- acceleration is the curvature of the worldline.
 
-* First, as designed, the two frames share the same light cone. You'll notice an event placed on the light cone stays on the light cone, regardless of the relative velocity of the two reference frames. In other words, the two observers always agree on the speed of light. 
+* The velocity and acceleration vectors in the rest frame **R** are simply those same vectors in **R'**, Lorentz transformed accordingly -- their Lorentz invariance means that they have the same magnitude and stay orthogonal to one another -- acceleration is still the curvature of the worldline. 
 
-* Second, events that are above the light-cone stay above the light-cone, regardless of relative frame velocities. Similarly for events that are below the light cones -- they stay below the light cone. There is a strong division of Minkowsky space-time into regions which can be reached by slower-than-light travel from the origin, and those that cannot. Events that sit in this latter space will *never* be affected by an event at the origin, and nor will any of these events affect anything happening at the origin.
+* The worldline drawn in **R'**(t) is, in my opinion at least, not the most intuitive thing to interpret, as the reference frame always changes velocity as the ship does. You can see, however, that once no force is applied, the ship moves with constant velocity and the worldline drags straight behind the ship. More generally, in this frame the trajectory appears, basically, as the turning point of a parabola which is up or down depending on the sign of the acceleration.
 
-* Third, the two frames of reference may no longer agree on the time that an event took place. Two events that may appear simultaneous (e.g. lying on the same 'horizontal' line) to one observer may not appear as simultaneous to the other. Special relativity abandons the notion of absolute time -- the notion that time proceeds equally for all throughout the whole universe, and that there is a well-defined way in which two spatially separated events can be judged to have occurred simultaneously that all observers would agree on. 
+* If you turn on the Show Galilean Motion option, it shows the trajectory a ship will follow in **R** under normal, Newtonian mechanics. A key difference you can notice is that it can move faster than the speed of light, as evidenced by being able to move outside of the origin's lightcone. 
 
-* Fourth, in particular, a moving clock will appear, from the stationary observer, to run *slowly*. Set the relative frame velocity to zero, and place an event in the moving frame (double click on the axes) at (x' = 0, t' = 1). I.e. an event at the moving frame's spatial origin, *one unit of time after time 0*. When there is no relative velocity, of course the two frames measure the time of this event as the same. As the relative velocity is increased, however, 'one unit of time later' for the moving observer becomes *more* than one unit of time later for the stationary observer. More time will appear to have passed for the stationary observer than for the moving one. Weird.
+* A final note is an admission of some subtley that comes with the way this simulation was described and setup. Our simulation clock counts ticks of rest time $t$, and yet we're imagining that we're on board the ship, changing its thrusters. The relative rate at which proper time, $\tau$, ticks over can be, depending on $\gamma$, significantly slower. The temporal resolution at which we're able to issue commands to the ship and respond to changes in its motion thus _increases_ as time dilation increases. This isn't so realistic. Is it better to instead run the simulation with a fixed proper time stepsize? The issue with that is that I think its easier to get a sense for the motion from a single inertial frame **R**, which dictates using an external clock. A fixed step size in $\tau$ could become arbitrarily large in $t$, so we would lose numerical precision in our external view of things.
 
-This is just to highlight some of the most significant and interesting features of this model of space-time. There is much still to explore. 
+Hopefully this simulation gives a bit more intuition about how kinematics work in special relativity -- just remember: constant velocity trajectories are hyperbola. For our next post, we will incorporate gravity into the picture with Einstein's general theory of relativity.
