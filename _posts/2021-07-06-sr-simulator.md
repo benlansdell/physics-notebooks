@@ -26,30 +26,30 @@ Second, from our [earlier post](https://benlansdell.github.io/expositions/posts/
 Now, how should we think about acceleration in moving frames? Dealing with measurements made in an accelerating frame is most satisfactorily studied with the general theory of relavity. But even absent this more general theory we can make sense of this question. The idea is to define all kinematic quantities, including acceleration, as 4-dimensional objects that are parameterized by the spaceship's clock, $$\tau$$. By doing so these quantities possess certain invariances to undergoing a Lorentz transformation -- their properties are independent of our way of observing, or parameterizing, them. (These derivations will be provided in a follow-up post.) This is useful here, and indispensible in more complicated cases.
 
 The so-called 4-acceleration is the rate of change of the 4-velocity as a function of proper time, $$\tau$$:
-$$
+
 \begin{aligned}
 A = dU/d\tau = [a^0, a^1, a^2, a^3]
 \end{aligned}
-$$
+
 
 In our reduced dimension case, we only need consider 1 spatial component. We can show that $$A$$ is of the form: $$a^0 = a\gamma v$$, $$a^1 = a\gamma$$ and $$a^2 = a^3 = 0$$, for some parameter $$a$$. In fact, in Minkowsky space, with the metric signature (-1,1,1,1), we have $$A\cdot A = a^2$$. Further, in an inertial frame that is at some moment $$t$$ moving along with the ship at exactly its velocity, $$v(t)$$, we see that $$a^0 = 0$$ and $$a^1 = a$$. This means that in the inertial frame that is momentarily moving along with the ship, there are no relativistic effects and the ship has acceleration $$a$$ -- thus $$a$$ can be thought of as the acceleration _as experienced by those on the ship, and what we have control over by adjusting the thrusters_. 
 
 ### The kinematic equations
 
 From an outside observer, it is quite straightforward to derive the following relations:
-$$
+
 \begin{aligned}
 dx/d\tau = \sinh\left(\int_0^{\tau(t)} a(s)\,ds\right)\\
 dt/d\tau = \cosh\left(\int_0^{\tau(t)} a(s)\,ds\right)
 \end{aligned}
-$$
+
 
 And thus we have
-$$
+
 \begin{aligned}
 v(t) = dx/dt = \tanh\left(\int_0^{\tau(t)} a(s)\,ds\right)
 \end{aligned}
-$$
+
 
 The quantity $$\phi = \int_0^\tau a(s)\,ds$$ is known as the rapidity. Note that it has the form simply of the integrated 'local' acceleration -- it is the velocity occupants on the ship would be moving at if relativistic effects were absent.
 
