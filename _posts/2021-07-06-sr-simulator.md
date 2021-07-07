@@ -9,7 +9,7 @@ image: stars.png
 
 Here we imagine we are in control of a powerful spaceship, navigating flat spacetime (i.e. away from any massive objects which could curve spacetime). We can provide thrust in only one spatial dimension, either forwards or backwards. 
 
-The force we can apply, at a time measured on the ship $$$$\tau$$$$, accelerates the ship accordingly. What does our navigation look like from an outside observer? Let's call this outside reference frame **R**.
+The force we can apply, at a time measured on the ship $$\tau$$, accelerates the ship accordingly. What does our navigation look like from an outside observer? Let's call this outside reference frame **R**.
 
 Special relativity dictates that when the relative velocity of our ship approaches the speed of light, the kinematics of our flight, as observed by an outside observer, deviate those given by Newtonian mechanics. This post lets us explore how the kinematics do play out in special relativity. 
 
