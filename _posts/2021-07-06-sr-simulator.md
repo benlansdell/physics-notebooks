@@ -38,12 +38,12 @@ In our reduced dimension case, we only need consider 1 spatial component. We can
 
 From an outside observer, it is quite straightforward to derive the following relations:
 
-$
+$$
 \begin{aligned}
 dx/d\tau = \sinh\left(\int_0^{\tau(t)} a(s)\,ds\right)\\
 dt/d\tau = \cosh\left(\int_0^{\tau(t)} a(s)\,ds\right)
 \end{aligned}
-$
+$$
 
 And thus we have
 
@@ -107,4 +107,4 @@ Some things to note:
 
 * A final note is an admission of some subtley that comes with the way this simulation was described and setup. Our simulation clock counts ticks of rest time $$t$$, and yet we're imagining that we're on board the ship, changing its thrusters. The relative rate at which proper time, $$\tau$$, ticks over can be, depending on $$\gamma$$, significantly slower. The temporal resolution at which we're able to issue commands to the ship and respond to changes in its motion thus _increases_ as time dilation increases. This isn't so realistic. Is it better to instead run the simulation with a fixed proper time stepsize? The issue with that is that I think its easier to get a sense for the motion from a single inertial frame **R**, which dictates using an external clock. A fixed step size in $$\tau$$ could become arbitrarily large in $$t$$, so we would lose numerical precision in our external view of things.
 
-Hopefully this simulation gives a bit more intuition about how kinematics work in special relativity -- just remember: constant velocity trajectories are hyperbola. For our next post, we will incorporate gravity into the picture with Einstein's general theory of relativity.
+Hopefully this simulation gives a bit more intuition about how kinematics work in special relativity -- basically: constant acceleration is a hyperbola instead of a parabola, with the extra momentum going into the object's mass and not its velocity. For our next post, we will incorporate gravity into the picture with Einstein's general theory of relativity.
