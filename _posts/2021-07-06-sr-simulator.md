@@ -38,11 +38,12 @@ In our reduced dimension case, we only need consider 1 spatial component. We can
 
 From an outside observer, it is quite straightforward to derive the following relations:
 
+$
 \begin{aligned}
 dx/d\tau = \sinh\left(\int_0^{\tau(t)} a(s)\,ds\right)\\
 dt/d\tau = \cosh\left(\int_0^{\tau(t)} a(s)\,ds\right)
 \end{aligned}
-
+$
 
 And thus we have
 
