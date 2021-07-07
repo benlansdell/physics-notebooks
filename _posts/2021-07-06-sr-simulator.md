@@ -15,7 +15,7 @@ Special relativity dictates that when the relative velocity of our ship approach
 
 Einstein's theories of relativity generally require spelling out the setup more explicitly than in a Galilean setting -- we have to explicitly say how a concept is to be operationalized for it to be fair game. To that end, let's elaborate a bit more before diving into the simulation. 
 
-This will assume some knowledge of special relativity. 
+This will assume some knowledge of special relativity. Some introductory material can be found in my earlier post ([here](https://benlansdell.github.io/expositions/posts/minkowsky.html)). Otherwise, you can consult the Feynman Lectures on Physics, for example. 
 
 ### The setup
 
