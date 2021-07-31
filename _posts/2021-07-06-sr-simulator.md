@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "A special relativity simulator"
+title: "A special relativity demo"
 author: "Ben Lansdell"
 categories: posts
 tags: [special-relativity]
-image: stars.png
+image: planet_sun.png
 ---
 
 Here we imagine we are in control of a powerful spaceship, navigating flat spacetime (i.e. away from any massive objects which could curve spacetime). We can provide thrust in only one spatial dimension, either forwards or backwards. 
