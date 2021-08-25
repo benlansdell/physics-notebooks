@@ -85,13 +85,20 @@ new Runtime().module(define, name => {
 
 Denote by **R'**(t) the inertial frame that, at time $$t$$, is moving with speed $$v(t)$$ relative to **R**, with the origin shifted to be the location of the ship. We can then plot the worldline from **R'**(t). 
 
-<div id="observablehq-moving_frame-39a30556"></div>
+<div id="observablehq-viewof-reset_widget_local-4e2e7ebe"></div>
+<div id="observablehq-speedControl_l-4e2e7ebe"></div>
+<div id="observablehq-Force_l-4e2e7ebe"></div>
+<div id="observablehq-moving_frame-4e2e7ebe"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import define from "https://api.observablehq.com/@benlansdell/a-special-relativity-simulator.js?v=3";
 new Runtime().module(define, name => {
-  if (name === "moving_frame") return new Inspector(document.querySelector("#observablehq-moving_frame-39a30556"));
+  if (name === "viewof reset_widget_local") return new Inspector(document.querySelector("#observablehq-viewof-reset_widget_local-4e2e7ebe"));
+  if (name === "speedControl_l") return new Inspector(document.querySelector("#observablehq-speedControl_l-4e2e7ebe"));
+  if (name === "Force_l") return new Inspector(document.querySelector("#observablehq-Force_l-4e2e7ebe"));
+  if (name === "moving_frame") return new Inspector(document.querySelector("#observablehq-moving_frame-4e2e7ebe"));
+  return ["state_l","a_l","plot_moving_frame"].includes(name);
 });
 </script>
 
