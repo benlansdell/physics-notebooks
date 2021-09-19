@@ -13,8 +13,19 @@ Further, the arrow of time cannot come from the fundamental laws of physics, as 
 
 So is the arrow of time _just_ the fact that systems move to a state of increased entropy? Could increasing entropy be used to _define_ which direction is future and which is past? Well, it's a little more complicated than that. 
 
-The complication is that finding ourselves in a state of low entropy is not enough to pick out a special direction in time that is 'forwards' -- the direction in which entropy increases. This is because if all we know is that we're in a state of low entropy, there are in fact many more microstates in which that low-entropy state is a local minimum, and that playing out the dynamics _in either_ direction would result in an increase in entropy, than there are microstates in which there is an adjacent state that has a _lower_ entropy. If it were the case that playing the dynamics out in one direction had a higher entorpy and the other had lower entropy, then we could call one future and the other past. But in general a low entropy state is not enough conclude the existence of a _lower_ entropy state that allows for the definitin of an arrow of time based on entropy. 
+The scenario to consider is the one we find ourselves in now -- a state that is not at maximum entropy, a non-equilibrium state, a state of _relatively_ low engtropy. Being at equilibrium we don't expect there to be an arrow of time. 
 
-As a result, an additional hypothesis is needed: that there does exist a very low entropy state in the distant past. This is known as the past hypothesis. 
+The complication is that finding ourselves in a state of relatively low entropy is not enough to pick out a special direction in time that is 'forwards' -- the direction in which entropy increases. This is because if all we know is that we're in a state of low entropy, there are in fact many more microstates in which that low-entropy state is a 'local minimum', and that playing out the dynamics _in either_ direction would result in an increase in entropy, than there are microstates in which there is an adjacent state that has a _lower_ entropy. If it was the case that playing the dynamics out in one direction had a higher entropy and the other had lower entropy, then we could call one future and the other past. But in general a low entropy state is not enough conclude the existence of a _lower_ entropy state that allows for the definitin of an arrow of time based on entropy. 
 
-Here we develop some widgets to demonstate these ideas.
+As a result, an additional hypothesis is needed. A commonly invoked hypothesis is that there does exist a very low entropy state in the distant past. Essentially a boundary condition, an assumption about the entropy at the beginning of the universe. This was dubbed the past hypothesis by philosopher/physicist David Albert. By assuming the past hypothesis then it _is_ the case that we can assume the existence of a _lower_ entropy state than the one we find ourselves in now, and therefore a way to define the arrow of time. 
+
+Here are some simple demonstrations of these ideas.
+
+First, we'll demonstate the idea with some billiard balls. The idea here is to observe that:
+* For a high entropy state, we can reverse the dynamics and things look exactly the same
+* For a low entropy state, reversing the dynamics reveals a highly unlikely set of trajectories -- all the balls move to one corned of the arena
+
+Second we'll demonstate the past hypothesis with a longer duration, one dimensional, simulation. 
+* We will run the simulation with and without a past hypothesis
+* We will notice that with the past hypothesis, until we reach a state of maximum entropy, the entropy values provide an ordering on time
+* Running the simulation for the same duration without the past hypothesis there is no such ordering. A low entropy state is just as likely to be followed by a higher entropy state as it is likely to be preceeded by a high entropy state.  
