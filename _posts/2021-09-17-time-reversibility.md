@@ -44,20 +44,26 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
     </div>
 </div>
 
-<canvas id="canvas">
-</canvas>
-
+<div id="containing_div">
+    <canvas id="canvas">
+    </canvas>
+</div>
+    
 <script>
     (function() {
         const canvas = document.getElementById('canvas'),
         context = canvas.getContext('2d');
 
+        const containing_div = document.getElementById('containing_div');
+
         // resize the canvas to fill browser window dynamically
         window.addEventListener('resize', resizeCanvas, false);
 
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+//            canvas.width = window.innerWidth;
+//            canvas.height = window.innerHeight;
+            canvas.width = containing_div.width;
+            canvas.height = containing_div.height;
         }
         resizeCanvas();
     })();
