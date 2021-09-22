@@ -29,3 +29,37 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
 * We will run the simulation with and without a past hypothesis
 * We will notice that with the past hypothesis, until we reach a state of maximum entropy, the entropy values provide an ordering on time
 * Running the simulation for the same duration without the past hypothesis there is no such ordering. A low entropy state is just as likely to be followed by a higher entropy state as it is likely to be preceeded by a high entropy state.  
+
+
+<div id="container-left">
+    <div class="pair">
+        <input class="button" id="switchCollision" type="button" value="Switch Collision Type"/>
+        <br>
+        <label class="label" id="switchCollisionLabel" for="switchCollision">Push</label>
+    </div>
+    <div class="pair">
+        <input class="button" id="toggleGravity" type="button" value="Toggle Gravity Mode"/>
+        <br>
+        <label class="label" id="toggleGravityLabel" for="toggleGravity">Off</label>
+    </div>
+</div>
+
+<canvas id="canvas">
+</canvas>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('canvas'),
+        context = canvas.getContext('2d');
+
+        // resize the canvas to fill browser window dynamically
+        window.addEventListener('resize', resizeCanvas, false);
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+    })();
+</script>
+<script type="text/javascript" src="ball_index.js"></script>
