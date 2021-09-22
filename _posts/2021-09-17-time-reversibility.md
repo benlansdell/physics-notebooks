@@ -62,4 +62,4 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
         resizeCanvas();
     })();
 </script>
-<script type="text/javascript" src="assets/ball_index.js"></script>
+<script type="text/javascript" src="../assets/ball_index.js"></script>
