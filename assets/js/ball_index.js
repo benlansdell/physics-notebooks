@@ -281,11 +281,6 @@ function createBouncingExample() {
 
 }
 
-document.getElementById("pushExample").onclick = createPushingExample;
-document.getElementById("gravityExample").onclick = createGravityExample;
-document.getElementById("bounceExample").onclick = createBouncingExample;
-
-
 /** Used with click + hold events to create circles (objects). */
 function createShape(event, radius=10, mass=100) {
     let x = event.pageX - c.offsetLeft;
