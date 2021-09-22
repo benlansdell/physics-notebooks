@@ -57,7 +57,7 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
         const containing_div = document.getElementById('containing_div');
 
         // resize the canvas to fill browser window dynamically
-        window.addEventListener('resize', resizeCanvas, false);
+        //window.addEventListener('resize', resizeCanvas, false);
 
         function resizeCanvas() {
 //            canvas.width = window.innerWidth;
@@ -65,7 +65,7 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
             canvas.width = containing_div.width;
             canvas.height = containing_div.height;
         }
-        resizeCanvas();
+        //resizeCanvas();
     })();
 </script>
 <script type="text/javascript" src="../assets/js/ball_index.js"></script>
