@@ -44,7 +44,7 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
     </div>
 </div>
 
-<div id="containing_div" width="auto" height="300px">
+<div id="containing_div" style="width:auto; height: 300px">
     <canvas id="canvas">
     </canvas>
 </div>
