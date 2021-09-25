@@ -198,7 +198,7 @@ function createBouncingExample() {
 
     for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
-            let radius = getRandomInt(5, 30);
+            let radius = getRandomInt(5, 15);
             let x = getRandomInt(radius, c.offsetWidth - radius);
             let y = getRandomInt(radius, c.offsetHeight - radius);
             objects.push(new Shape(x, y, radius, getRandomInt(-1, 1), getRandomInt(-1, 1), radius*10));
