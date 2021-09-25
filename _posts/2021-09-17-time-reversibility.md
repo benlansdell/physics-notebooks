@@ -86,7 +86,6 @@ function make_func_data(f, xmin, xmax) {
       y: f(vx)
     });
   }
-  console.log(data);
   return data;
 }
                         
@@ -117,6 +116,7 @@ function plot_1d_function(func, xmin, xmax) {
       .attr("stroke", 'black')
       .attr("stroke-width", 2)
       .attr("d", d3.line(d => x(d.x), d => y(d.y))(make_func_data(func, xmin, xmax)));
+  console.log(svg.node());
 
   return svg.node();
 }
