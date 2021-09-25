@@ -177,87 +177,13 @@ const CollisionTypes = Object.freeze({
 });
 let gravity = false;
 
-let currentCollisionType = CollisionTypes.push;
-
-
-function switchCollisionType() {
-    let label = document.getElementById("switchCollisionLabel");
-    if (currentCollisionType === CollisionTypes.bounce) {
-        currentCollisionType = CollisionTypes.push;
-        label.textContent = "Push"
-    }
-    else {
-        currentCollisionType = CollisionTypes.bounce;
-        label.textContent = "Bounce"
-    }
-}
-document.getElementById("switchCollision").onclick = switchCollisionType;
-
-function toggleGravity() {
-    let label = document.getElementById("toggleGravityLabel");
-    gravity = !gravity;
-    label.textContent = gravity ? "On" : "Off";
-}
-document.getElementById("toggleGravity").onclick = toggleGravity;
-
+let currentCollisionType = CollisionTypes.bounce;
 
 const maxSpeed = 150;
 const c = document.getElementById("canvas");
 const ctx = c.getContext("2d");
 
 let objects = [];
-
-function createPushingExample() {
-    let labelCollision = document.getElementById("switchCollisionLabel");
-    currentCollisionType = CollisionTypes.push;
-    labelCollision.textContent = "Push";
-
-    let labelGravity = document.getElementById("toggleGravityLabel");
-    gravity = false;
-    labelGravity.textContent = "Off";
-
-    objects = [];
-    let rows = 6;
-    let radius = 10;
-    let startX = Math.round(c.offsetWidth/3);
-    let startY = Math.round(c.offsetHeight/3);
-    let cols = Math.round(c.offsetHeight * 0.25)/radius; // 20% filled with balls (by height)
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
-            objects.push(new Shape(startX + j*radius, startY + i*radius, radius, 0, 0, 100))
-        }
-    }
-    objects.push(new Shape(20, startY + radius*rows/2, 20, 1, 0, 100))
-}
-
-function createGravityExample() {
-    let labelCollision = document.getElementById("switchCollisionLabel");
-    currentCollisionType = CollisionTypes.push;
-    labelCollision.textContent = "Push";
-
-    let labelGravity = document.getElementById("toggleGravityLabel");
-    gravity = true;
-    labelGravity.textContent = "On";
-
-    objects = [];
-
-    objects.push(new Shape(640, 632, 45, 0, 0, 500));
-
-    objects.push(new Shape(330, 700, 10, 0, -1, 200, 0, -40));
-    objects.push(new Shape(270, 780, 7, 0, -1, 70, 0, 20));
-
-    objects.push(new Shape(300, 400, 10, 1, 0, 80, 25, -20));
-
-    objects.push(new Shape(610, 250, 3, 1, 0, 1, 25, 20));
-    objects.push(new Shape(650, 270, 5, 1, 0, 3, 45, 10));
-    objects.push(new Shape(680, 290, 3, 1, 0, 1, 35, 20));
-
-    objects.push(new Shape(830, 450, 10, 1, 1, 60, 20, 50));
-    objects.push(new Shape(830, 300, 10, 1, 1, 100, 20, 50));
-
-    objects.push(new Shape(830, 600, 15, 0, 1, 115, 0, 75));
-    objects.push(new Shape(740, 820, 15, -1, 0, 100, -25, 50));
-}
 
 function createBouncingExample() {
     let labelCollision = document.getElementById("switchCollisionLabel");
@@ -278,8 +204,9 @@ function createBouncingExample() {
             objects.push(new Shape(x, y, radius, getRandomInt(-1, 1), getRandomInt(-1, 1), radius*10));
         }
     }
-
 }
+
+createBouncingExample();
 
 /** Used with click + hold events to create circles (objects). */
 function createShape(event, radius=10, mass=100) {
