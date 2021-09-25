@@ -66,9 +66,10 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
         //resizeCanvas();
     })();
 </script>
+<script src="https://d3js.org/d3.v6.js"></script>
 <script type="text/javascript" src="../assets/js/ball_index.js"></script>
 
-<script src="https://d3js.org/d3.v6.js"></script>
+<div id="entropy_plot" style="width:100%; height: 300px"></div>
 
 <script>
     
@@ -91,14 +92,14 @@ function make_func_data(f, xmin, xmax) {
                                                 
 function plot_1d_function(func, xmin, xmax) {
 
-  const height = 320;
+  const height = 300;
   const width = 480;
   const margin = {top: 20, right: 30, bottom: 20, left: 40};
   const x_s = d3.scaleLinear().domain([xmin, xmax]).range([margin.left, width - margin.right]);
   const y_s = d3.scaleLinear().domain([-1, 3]).range([height - margin.bottom, margin.top]);
 
   //Create SVG element
-  var svg = d3.select("body")
+  var svg = d3.select("#entropy_plot")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
