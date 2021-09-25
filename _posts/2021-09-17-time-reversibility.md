@@ -68,6 +68,10 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
 </script>
 <script type="text/javascript" src="../assets/js/ball_index.js"></script>
 
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<div id="my_dataviz"></div>
+
 <script>
 
 // set the dimensions and margins of the graph
