@@ -70,61 +70,56 @@ Second we'll demonstate the past hypothesis with a longer duration, one dimensio
 
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<div id="my_dataviz"></div>
-
 <script>
+    
+function make_func_data(f, xmin, xmax) {
+  const n = 50;
+  const stepsize = (xmax - xmin)/n;
+  // Start at the center of the field.
+  let vx = xmin;
+  const data = [];
+  for (let i = 0; i < n; i++) {
+    // Random walk with large or small steps.
+    data.push({
+      step: i,
+      x: vx += stepsize,
+      y: f(vx)
+    });
+  }
+  console.log(data);
+  return data;
+}
+                        
+function plot_1d_function(func, xmin, xmax) {
 
-// set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+  const height = 320;
+  const width = 480;
+  const margin = {top: 20, right: 30, bottom: 20, left: 40};
+  const x = d3.scaleLinear().domain([xmin, xmax]).range([margin.left, width - margin.right]);
+  const y = d3.scaleLinear().domain([-1, 4]).range([height - margin.bottom, margin.top]);
 
-// append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-  .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+  //Create SVG element
+  var svg = d3.select("body")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
+                        
+  svg.append("g")
+      .attr("transform", `translate(0,${y(0)})`)
+      .call(d3.axisBottom(x).ticks(5,"f"));
 
-//Read the data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered_comma.csv",
+  svg.append("g")
+      .attr("transform", `translate(${x(0)},0)`)
+      .call(d3.axisLeft(y).ticks(5, "f"));
 
-  // When reading the csv, I must format variables:
-  function(d){
-    return { date : d3.timeParse("%Y-%m-%d")(d.date), value : d.value }
-  },
+  svg.append("path")
+      .attr("fill", "red")
+      .attr("stroke", 'black')
+      .attr("stroke-width", 2)
+      .attr("d", d3.line(d => x(d.x), d => y(d.y))(make_func_data(func, xmin, xmax)));
 
-  // Now I can use this dataset:
-  function(data) {
-
-    // Add X axis --> it is a date format
-    var x = d3.scaleTime()
-      .domain(d3.extent(data, function(d) { return d.date; }))
-      .range([ 0, width ]);
-    svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-    // Add Y axis
-    var y = d3.scaleLinear()
-      .domain([0, d3.max(data, function(d) { return +d.value; })])
-      .range([ height, 0 ]);
-    svg.append("g")
-      .call(d3.axisLeft(y));
-
-    // Add the line
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.date) })
-        .y(function(d) { return y(d.value) })
-        )
-
-})
-
+  return svg.node();
+}
+    
+plot_1d_function((xa) => 2*xa, -10, 10);
 </script>
