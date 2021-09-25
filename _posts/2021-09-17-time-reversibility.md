@@ -88,38 +88,42 @@ function make_func_data(f, xmin, xmax) {
   }
   return data;
 }
-                        
+                                                
 function plot_1d_function(func, xmin, xmax) {
 
   const height = 320;
   const width = 480;
   const margin = {top: 20, right: 30, bottom: 20, left: 40};
-  const x = d3.scaleLinear().domain([xmin, xmax]).range([margin.left, width - margin.right]);
-  const y = d3.scaleLinear().domain([-1, 4]).range([height - margin.bottom, margin.top]);
+  const x_s = d3.scaleLinear().domain([xmin, xmax]).range([margin.left, width - margin.right]);
+  const y_s = d3.scaleLinear().domain([-1, 3]).range([height - margin.bottom, margin.top]);
 
   //Create SVG element
   var svg = d3.select("body")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
-                        
+            
+  var data = make_func_data(func, xmin, xmax);
+            
   svg.append("g")
-      .attr("transform", `translate(0,${y(0)})`)
-      .call(d3.axisBottom(x).ticks(5,"f"));
+      .attr("transform", `translate(0,${y_s(0)})`)
+      .call(d3.axisBottom(x_s).ticks(5,"f"));
 
   svg.append("g")
-      .attr("transform", `translate(${x(0)},0)`)
-      .call(d3.axisLeft(y).ticks(5, "f"));
+      .attr("transform", `translate(${x_s(0)},0)`)
+      .call(d3.axisLeft(y_s).ticks(5, "f"));
 
-  svg.append("path")
-      .attr("fill", "red")
+  svg.append('g').append("path")
+      .attr("fill", "none")
       .attr("stroke", 'black')
       .attr("stroke-width", 2)
-      .attr("d", d3.line(d => x(d.x), d => y(d.y))(make_func_data(func, xmin, xmax)));
-  console.log(svg.node());
-
+      .attr("d", d3.line(d => x_s(d.x), d => y_s(d.y))(data))
+      .attr('class', 'line');
+      
+  console.log(data);   
   return svg.node();
 }
     
-plot_1d_function((xa) => 2*xa, -10, 10);
+plot_1d_function((xa) => xa*xa, -3, 3);
+
 </script>
