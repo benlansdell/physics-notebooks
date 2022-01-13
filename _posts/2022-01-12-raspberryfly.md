@@ -5,7 +5,7 @@ author: "Ben Lansdell"
 categories: posts
 tags: [alexa]
 published: false
-image: billiardballs.webp
+image: atc.jpg
 ---
 
 # The goal
