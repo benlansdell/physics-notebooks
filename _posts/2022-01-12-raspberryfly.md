@@ -10,9 +10,9 @@ image: atc.png
 
 # The goal
 
-Having just moved to Memphis, I'm only 3 miles from the busiest (cargo) airport in the world ([really](https://en.wikipedia.org/wiki/List_of_busiest_airports_by_cargo_traffic)). Basically, this means a lot of Fedex planes are flying directly overhead. I was curious to know what aircraft they were specifically, which led me down this flight tracking rabbit hole. Now here I am with an Alexa skill that allows me to ask my Echo what planes are flying nearby, using data from my own ADS-B receiver. 
+Having just moved to Memphis, I'm only 3 miles from the busiest (cargo) airport in the world ([yes really](https://en.wikipedia.org/wiki/List_of_busiest_airports_by_cargo_traffic)). Basically, this means a lot of Fedex planes are flying directly overhead. I was curious to know what aircraft they were specifically, which led me down this flight tracking rabbit hole. Now here I am with an Alexa skill that allows me to ask my Echo what planes are flying nearby, using data from my own ADS-B receiver. 
 
-Here I'll describe the process to set the whole thing up.
+Here I'll describe the process to set the whole thing up. Note that this is a solution if you specifically want to use your own flight tracking data. If you don't care about that, you can just install an already-made Alexa skill that just queries the OpenSky network or the ADSBExchange for nearby flight data. By using your own data you guarantee coverage in your area -- ADSBExchage may not have many data feeders in your region. 
 
 # Outline
 
@@ -34,7 +34,7 @@ A 1090MHz [Filter](https://amzn.to/3fqr0pH)
 A [Small indoor antenna](https://amzn.to/3FAlGup)
 [Raspberry pi zero](https://amzn.to/3frS7Ay)
 
-But any variant on the above should work well. The filter is optional, but can help in urban areas reduce noise from other radio sources. The better your antenna setup the longer your tracking range is of course. Mounting antenna outdoors should be significantly better than my indoor setup. 
+But any variant on the above should work well. The filter is optional, but can help in urban areas reduce noise from other radio sources. The better your antenna setup the longer your tracking range is of course. Mounting an antenna outdoors should be significantly better than my indoor setup. 
 
 # Basic flight tracking
 
@@ -56,6 +56,7 @@ Step 0 is setup the dev environment on the pi. Install git, vim, and whatever el
 ```
 sudo apt install python3-lxml nodejs npm mongodb
 ```
+It's better to install `lxml` through `apt` since the compilation through `pip` could crash the pi. 
 3. Install required python packages
 ```
 pip install -r requirements.txt
@@ -91,10 +92,12 @@ curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trust
 ngrok http 5000
 ```
 
-Now we have a URL we can point Alexa to in order to access our flight data.
+Now we have a URL we can point Alexa to in order to access our flight data. A more robust solution may be to use pagekite. 
 
 # Setup the Alexa skill
 
 All that's left is to setup the Alexa skill to query our server. 
 
-# Some notes and todo items
+# Summary and follow-up items
+
+So there we have it. It's actually not that hard to get an Alexa skill to interact with your home devices. As I mentioned, a couple of obvious improvements are to get the server and tunnel running when the pi boots, that way you should be able to lose power etc and the system will restart itself. And using pagekite should allow for a more permanent forwarding URL. With ngrok, you'll get a different URL each time you start the process, and so you'll have to update your Alexa skill settings each time accordingly, which is a bit annoying.
