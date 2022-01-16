@@ -96,8 +96,24 @@ Now we have a URL we can point Alexa to in order to access our flight data. A mo
 
 # Setup the Alexa skill
 
-All that's left is to setup the Alexa skill to query our server. 
+All that's left is to setup the Alexa skill to query our server. Head over to the Alexa skills developer console ([https://developer.amazon.com/alexa/console/ask](https://developer.amazon.com/alexa/console/ask)). You'll have to register as an Amazon developer if you haven't done so already. Then:
+
+1. Create a new skill, the name will be the skill word. E.g. `Alexa ask [skill name] to ...`, so choose something that sounds natural. I just made mine Raspberry pi. Select the 'custom' template and choose to provision your own resources. Choose 'start from scratch' if it gives you a choice of template to use.
+2. There are two things to setup: the endpoint and the intents. For the endpoint, go to 'Slot Types' -> Endpoint. Choose HTTPS, and input the https address output from ngrok into the default region field. Choose the type 'My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority. 
+3. For the intent: Go to 'Interaction Model' -> 'JSON Editor'. Paste or upload the schema.json contents into the editor. This file contains the set of phrases used to request flight information from Flask-ask.
+
+Save the model, build the model. Now it's ready to test. You can test it in the console, which can be helpful for debugging. It will show what was sent and received from the endpoint. ngrok and the flask-ask server should also output something for each request, so you can see where something has gone wrong pretty easily. 
+
+Finally, if your local Echo is registered with the same Amazon account you should be able to see the skill you've just built in the list of skills, under the dev section. If it shows up in this list, you should be set to ask your Echo what planes are nearby. 
+
+Something like:
+```
+Alexa ask raspberry pi what plane is closest.
+```
+And you should get a response!
 
 # Summary and follow-up items
 
 So there we have it. It's actually not that hard to get an Alexa skill to interact with your home devices. As I mentioned, a couple of obvious improvements are to get the server and tunnel running when the pi boots, that way you should be able to lose power etc and the system will restart itself. And using pagekite should allow for a more permanent forwarding URL. With ngrok, you'll get a different URL each time you start the process, and so you'll have to update your Alexa skill settings each time accordingly, which is a bit annoying.
+
+There's a lot you could add to the model once the basics are working. You could make it possible to ask for more information about the flights overhead, like where they are heading, came from, etc. 
