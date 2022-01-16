@@ -29,10 +29,10 @@ More detail on each is below. Although I should note that this isn't intended as
 
 My setup is the following:
 
-A USB [FlightStick](https://amzn.to/3A2fKJo)
-A 1090MHz [Filter](https://amzn.to/3fqr0pH)
-A [Small indoor antenna](https://amzn.to/3FAlGup)
-[Raspberry pi zero](https://amzn.to/3frS7Ay)
+* A USB [FlightStick](https://amzn.to/3A2fKJo)
+* A 1090MHz [Filter](https://amzn.to/3fqr0pH)
+* A [Small indoor antenna](https://amzn.to/3FAlGup)
+* [Raspberry pi zero](https://amzn.to/3frS7Ay)
 
 But any variant on the above should work well. The filter is optional, but can help in urban areas reduce noise from other radio sources. The better your antenna setup the longer your tracking range is of course. Mounting an antenna outdoors should be significantly better than my indoor setup. 
 
