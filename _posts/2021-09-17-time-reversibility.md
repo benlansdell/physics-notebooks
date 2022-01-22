@@ -41,6 +41,9 @@ new Runtime().module(define, name => {
 });
 </script>
 
+<iframe width="100%" height="605" frameborder="0"
+  src="https://observablehq.com/embed/@benlansdell/entropy-and-the-arrow-of-time?cells=eh%2Ccanvas%2Cviewof+reset_widget_local"></iframe>
+
 Second we'll demonstate the past hypothesis with a longer duration, one dimensional, simulation. 
 * We will run the simulation with and without a past hypothesis
 * We will notice that with the past hypothesis, until we reach a state of maximum entropy, the entropy values provide an ordering on time
