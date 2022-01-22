@@ -4,7 +4,7 @@ title: "The arrow of time and entropy"
 author: "Ben Lansdell"
 categories: posts
 tags: [entropy]
-published: false
+published: true
 image: billiardballs.webp
 ---
 
@@ -26,106 +26,22 @@ First, we'll demonstate the idea with some billiard balls. The idea here is to o
 * For a high entropy state, we can reverse the dynamics and things look exactly the same
 * For a low entropy state, reversing the dynamics reveals a highly unlikely set of trajectories -- all the balls move to one corned of the arena
 
+Here is out first example:
+<div id="observablehq-eh-7d77f39f"></div>
+<div id="observablehq-canvas-7d77f39f"></div>
+<div id="observablehq-viewof-reset_widget_local-7d77f39f"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@benlansdell/entropy-and-the-arrow-of-time@1566.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "eh") return new Inspector(document.querySelector("#observablehq-eh-7d77f39f"));
+  if (name === "canvas") return new Inspector(document.querySelector("#observablehq-canvas-7d77f39f"));
+  if (name === "viewof reset_widget_local") return new Inspector(document.querySelector("#observablehq-viewof-reset_widget_local-7d77f39f"));
+});
+</script>
+
 Second we'll demonstate the past hypothesis with a longer duration, one dimensional, simulation. 
 * We will run the simulation with and without a past hypothesis
 * We will notice that with the past hypothesis, until we reach a state of maximum entropy, the entropy values provide an ordering on time
-* Running the simulation for the same duration without the past hypothesis there is no such ordering. A low entropy state is just as likely to be followed by a higher entropy state as it is likely to be preceeded by a high entropy state.  
-
-
-<div id="container-left">
-    <div class="pair">
-        <input class="button" id="switchCollision" type="button" value="Switch Collision Type"/>
-        <br>
-        <label class="label" id="switchCollisionLabel" for="switchCollision">Push</label>
-    </div>
-    <div class="pair">
-        <input class="button" id="toggleGravity" type="button" value="Toggle Gravity Mode"/>
-        <br>
-        <label class="label" id="toggleGravityLabel" for="toggleGravity">Off</label>
-    </div>
-</div>
-
-<canvas id="canvas" style="width:100%; height: 300px">
-</canvas>
-    
-<script>
-    (function() {
-        const canvas = document.getElementById('canvas'),
-        context = canvas.getContext('2d');
-
-        const containing_div = document.getElementById('containing_div');
-
-        // resize the canvas to fill browser window dynamically
-        //window.addEventListener('resize', resizeCanvas, false);
-
-        function resizeCanvas() {
-//            canvas.width = window.innerWidth;
-//            canvas.height = window.innerHeight;
-            canvas.width = containing_div.width;
-            canvas.height = containing_div.height;
-        }
-        //resizeCanvas();
-    })();
-</script>
-<script src="https://d3js.org/d3.v6.js"></script>
-<script type="text/javascript" src="../assets/js/ball_index.js"></script>
-
-<div id="entropy_plot" style="width:100%; height: 300px"></div>
-
-<script>
-    
-function make_func_data(f, xmin, xmax) {
-  const n = 50;
-  const stepsize = (xmax - xmin)/n;
-  // Start at the center of the field.
-  let vx = xmin;
-  const data = [];
-  for (let i = 0; i < n; i++) {
-    // Random walk with large or small steps.
-    data.push({
-      step: i,
-      x: vx += stepsize,
-      y: f(vx)
-    });
-  }
-  return data;
-}
-                                                
-function plot_1d_function(func, xmin, xmax) {
-
-  const height = 300;
-  const width = 480;
-  const margin = {top: 20, right: 30, bottom: 20, left: 40};
-  const x_s = d3.scaleLinear().domain([xmin, xmax]).range([margin.left, width - margin.right]);
-  const y_s = d3.scaleLinear().domain([-1, 3]).range([height - margin.bottom, margin.top]);
-
-  //Create SVG element
-  var svg = d3.select("#entropy_plot")
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
-            
-  var data = make_func_data(func, xmin, xmax);
-            
-  svg.append("g")
-      .attr("transform", `translate(0,${y_s(0)})`)
-      .call(d3.axisBottom(x_s).ticks(5,"f"));
-
-  svg.append("g")
-      .attr("transform", `translate(${x_s(0)},0)`)
-      .call(d3.axisLeft(y_s).ticks(5, "f"));
-
-  svg.append('g').append("path")
-      .attr("fill", "none")
-      .attr("stroke", 'black')
-      .attr("stroke-width", 2)
-      .attr("d", d3.line(d => x_s(d.x), d => y_s(d.y))(data))
-      .attr('class', 'line');
-      
-  console.log(data);   
-  return svg.node();
-}
-    
-plot_1d_function((xa) => xa*xa, -3, 3);
-
-</script>
+* Running the simulation for the same duration without the past hypothesis there is no such ordering. A low entropy state is just as likely to be followed by a higher entropy state as it is likely to be preceeded by a high entropy state. 
