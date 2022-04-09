@@ -22,9 +22,9 @@ The answer is that, by itself, finding ourselves in a state of relatively low en
 
 As a result of this consideration, an additional hypothesis about the state we find ourselves in is needed. A commonly invoked hypothesis is that there does exist a very low entropy state in the distant past. Essentially this is a boundary condition, an assumption about the entropy at the beginning of the universe. This was dubbed the _past hypothesis_ by philosopher/physicist David Albert. By assuming the past hypothesis then it _is_ the case that we can assume the existence of a _lower_ entropy state than the one we find ourselves in now, and therefore a way to relate the arrow of time to increasing entropy. 
 
-Here are some simple demonstrations of these ideas.
+## An example
 
-First, we'll demonstate the idea with some bouncing balls. Below is a simple simulation of particles bouncing around in an arena (their size is irrelevant here). They do not interact with one another, for simplicity. This is the same assumption made for an ideal gas. We'll assume their collisions with the walls are fully elastic -- they just bounce directly off the wall with the same speed, and opposite direction. How does the entropy of the system evolve with time here? 
+We'll demonstate the idea with some bouncing balls. Below is a simple simulation of particles bouncing around in an arena (their size is irrelevant here). They do not interact with one another, for simplicity. This is the same assumption made for an ideal gas. We'll assume their collisions with the walls are fully elastic -- they just bounce directly off the wall with the same speed, and opposite direction. How does the entropy of the system evolve with time here? 
 
 In this case we'll use a simple model for entropy. Our macrostate will just be defined as the very coarse grained positions of the particles -- how many particles are in the left half of the box? We'll define our entropy to be logarithm of the number of microstates possible for a given macrostate. This is written as
 $$
@@ -39,9 +39,4 @@ where $$\Omega$$ is known as the multiplicity of the macrostate, given a state $
 
 In this simulation, we can start in a state of zero entropy, low entropy, or in equilibrium (high entropy). Whether starting in zero entropy or in low entropy, playing the dynamics forward leads inextricably towards equilibrium -- roughly half the balls in the left and half in the right. You can run the dynamics forward for some time, until a balanced state is reached, and then reverse the dynamics to reveal a highly improbable set of trajectories -- all the balls converging on the left hand side. If you started the system at a state of equilibrium, this state would be exeedingly improbable -- occurring with a probably of something on the order of $$2^{-100}$$, meaning you could run this simulation for as long as you wanted and never observe it happen. And indeed it does _look_ highly improbable, it has the appearance of running backwards, even though there is nothing in the dynamical equations that has changed -- all we've done is reverse the velocities. 
 
-The key point for the above discussion is that, when starting the system in a state of low entropy, you can see that playing the dynamics either forwards or backwards results in an increase in entropy. Thus there is really no time asymmetry here. The only way to get time asymmetry is to put it in at the very beginning. 
-
-Second we'll demonstate the past hypothesis with a longer duration, one dimensional, simulation. 
-* We will run the simulation with and without a past hypothesis
-* We will notice that with the past hypothesis, until we reach a state of maximum entropy, the entropy values provide an ordering on time
-* Running the simulation for the same duration without the past hypothesis there is no such ordering. A low entropy state is just as likely to be followed by a higher entropy state as it is likely to be preceeded by a high entropy state. 
+The key point for the above discussion is that, when starting the system in a state of low entropy, you can see that playing the dynamics either forwards or backwards results in an increase in entropy. There is no direction in which entropy drops below what it started at. Thus there is really no time asymmetry here. The only way to get time asymmetry is to put it in at the very beginning. 
