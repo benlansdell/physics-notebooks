@@ -1,0 +1,3 @@
+[submodule "analemma"]
+	path = analemma
+	url = git@github.com:benlansdell/analemma.git
